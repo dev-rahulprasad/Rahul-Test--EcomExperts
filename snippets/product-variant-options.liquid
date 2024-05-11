@@ -107,7 +107,8 @@
       {% endif %}
     >
     <label for="{{ input_id }}">
-      {{ variants_featured_image_arr }}
+      <img src="{{ variants_featured_image_arr | image_url }}" width="50" alt="">
+      {{  }}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}

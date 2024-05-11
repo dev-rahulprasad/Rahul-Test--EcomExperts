@@ -18,16 +18,13 @@
 {% endcomment %}
 {%- liquid
   assign variants_available_arr = product.variants | map: 'available'
-  assign variants_featured_image_arr = product.variants | map: 'image'
+  assign variants_featured_image_arr = product.variants | map: 'featured_image'
   assign variants_option1_arr = product.variants | map: 'option1'
   assign variants_option2_arr = product.variants | map: 'option2'
   assign variants_option3_arr = product.variants | map: 'option3'
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
-{% for image in variants_featured_image_arr %}
-  <img src="{{ image | image_url }}" width="50" alt="">
-  {% endfor %}
 
 {%- for value in option.values -%}
   {%- liquid
@@ -107,20 +104,18 @@
       {% endif %}
       {% if option_disabled %}
         class="disabled"
-      {% endif %} 
+      {% endif %}
     >
     <label for="{{ input_id }}">
-      {% for image in variants_featured_image_arr %}
-          <img src="{{ image | image_url }}" width="50" height="" alt="">
-      {% endfor %}
+      {{ value }}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       value="{{ value | escape }}"
-      {% comment %} {% if option.selected_value == value %}
+      {% if option.selected_value == value %}
         selected="selected"
-      {% endif %} {% endcomment %}
+      {% endif %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}
         data-option-swatch-value="{{ swatch_value }}"
         {% if swatch_focal_point %}

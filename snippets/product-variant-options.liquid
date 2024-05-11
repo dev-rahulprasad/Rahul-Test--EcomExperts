@@ -115,9 +115,9 @@
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       value="{{ value | escape }}"
-      {% if option.selected_value == value %}
+      {% comment %} {% if option.selected_value == value %}
         selected="selected"
-      {% endif %}
+      {% endif %} {% endcomment %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}
         data-option-swatch-value="{{ swatch_value }}"
         {% if swatch_focal_point %}

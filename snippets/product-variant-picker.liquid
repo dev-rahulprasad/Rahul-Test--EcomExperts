@@ -48,6 +48,7 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
+        {% if option.name == "Color" %}
         <fieldset class="js product-form__input product-form__input--pill">
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options',
@@ -57,6 +58,7 @@
             picker_type: picker_type
           %}
         </fieldset>
+        {% endif %}
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">

@@ -18,6 +18,7 @@
 {% endcomment %}
 {%- liquid
   assign variants_available_arr = product.variants | map: 'available'
+  assign variants_featured_image_arr = product.variants | map: 'featured_image'
   assign variants_option1_arr = product.variants | map: 'option1'
   assign variants_option2_arr = product.variants | map: 'option2'
   assign variants_option3_arr = product.variants | map: 'option3'
@@ -106,7 +107,7 @@
       {% endif %}
     >
     <label for="{{ input_id }}">
-      {{ variants_option1_arr[forloop.index0] }}
+      {{  }}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}

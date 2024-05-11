@@ -58,8 +58,8 @@
             picker_type: picker_type
           %}
         </fieldset>
-        {% elsif option.name == Size %}
-          size
+        {% else %}
+          {{ option.name }}
           
         {% endif %}
 

@@ -25,6 +25,9 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
+{% for image in variants_featured_image_arr %}
+  <img src="{{ image | image_url }}" width="50" alt="">
+  {% endfor %}
 
 {%- for value in option.values -%}
   {%- liquid
@@ -104,7 +107,7 @@
       {% endif %}
       {% if option_disabled %}
         class="disabled"
-      {% endif %}
+      {% endif %} 
     >
     <label for="{{ input_id }}">
       {% for image in variants_featured_image_arr %}

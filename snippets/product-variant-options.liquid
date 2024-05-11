@@ -107,7 +107,7 @@
       {% endif %}
     >
     <label for="{{ input_id }}">
-      <img src="{{ variants_featured_image_arr[0] | image_url }}" width="50" alt="">
+      <img src="{{ variants_featured_image_arr.forloop.first | image_url }}" width="50" alt="">
       {{  }}
       {{ label_unavailable }}
     </label>

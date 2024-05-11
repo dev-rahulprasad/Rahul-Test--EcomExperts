@@ -106,7 +106,7 @@
       {% endif %}
     >
     <label for="{{ input_id }}">
-      {{ variants_option1_arr }}
+      {{ variants_option1_arr[forloop.index0] }}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
